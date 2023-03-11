@@ -56,6 +56,18 @@ public class LinkedList {
        System.out.println("After Delete Head");
 
     }
+    public void deleteLast(){
+        if (head==null){
+            System.out.println("List is Empty");
+            return;
+        }
+        Node corrent = head;
+        while (corrent.next.next != null){
+            System.out.println("Check"+corrent.data);
+            corrent=corrent.next;
+        }
+        corrent.next=null;
+    }
     public void diaplay(){
         Node current = head;
         if(current==null){
@@ -76,6 +88,8 @@ public class LinkedList {
         linkedList.appendData(7,10);
         linkedList.diaplay();
         linkedList.deleteFirst();
+        linkedList.diaplay();
+        linkedList.deleteLast();
         linkedList.diaplay();
     }
 }
