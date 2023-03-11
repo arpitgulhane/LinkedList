@@ -2,17 +2,18 @@ package linkedList;
 
 import javax.swing.*;
 
-public class LinkedList {
-    class Node{
-        Object data;
+public class LinkedList <T extends Comparable<T>>{
+    class Node<T>{
+        T data;
         Node next;
-        Node(Object data){
+        Node(T data){
             this.data=data;
             this.next=null;
         }
     }
-    public static Node head = null;
+    public Node<T>  head = null;
 //    public static Node tail = null;
+    //----------------------------add Linked List-----------------------------------------------------------------
     public void addLinkedList(Object data){
         Node newNode = new Node(data);
         if (head==null){
@@ -27,6 +28,7 @@ public class LinkedList {
             head = newNode;
         }
     }
+    //----------------------append Data---------------------------------------------------------------------------
     public void appendData(Object dataOld ,Object newData){
         if (head==null){
             System.out.println("List is Empty to append ...");
@@ -47,6 +49,7 @@ public class LinkedList {
             System.out.println("Data Not Found : "+dataOld);
         }
     }
+    //----------------------delete First---------------------------------------------------------------------------
    public void deleteFirst(){
         if (head==null){
             System.out.println("List is Empty");
@@ -56,6 +59,7 @@ public class LinkedList {
        System.out.println("After Delete Head");
 
     }
+    //--------------------delete Last-----------------------------------------------------------------------------
     public void deleteLast(){
         if (head==null){
             System.out.println("List is Empty");
@@ -68,7 +72,8 @@ public class LinkedList {
         }
         corrent.next=null;
     }
-    public void search(Object searchData){
+    //---------------------Search----------------------------------------------------------------------------
+    public void search(T searchData){
         if (head==null){
             System.out.println("cant searchList is Empty ");
         }
@@ -82,7 +87,8 @@ public class LinkedList {
         }
         System.out.println(searchData + " Not present ");
     }
-    public void deleteElement(Object deleteData){
+    //---------------Delete element----------------------------------------------------------------------------------
+    public void deleteElement(T deleteData){
         if (head==null){
             System.out.println("cant searchList is Empty ");
         }
@@ -91,17 +97,39 @@ public class LinkedList {
         while (current != null){
             if(current.data == deleteData){
                 System.out.println(deleteData+" is present");
-//                if (previous == null) {
-//                    head = current.next;
-//                } else {
-//                    previous.next = current.next;
-//                }
+                if (previous == null) {
+                    head = current.next;
+                } else {
+                    previous.next = current.next;
+                }
                 return;
             }
             current = current.next;
         }
         System.out.println(deleteData + " Not present ");
     }
+    //---------------------- Sort ---------------------------------------------------------------------------
+    public void sort(){
+        System.out.println("in sort ");
+        if(head==null){
+            System.out.println("Linked List is empty ...");
+            return;
+        }
+//        Node <T> newNode = new Node<>();
+
+        Node <T> current = head;
+        Node <T> current2;
+        while (current != null){
+            current2=current.next;
+//            if(current.data.compareTo(current2.data)){
+//
+//            }
+//            System.out.println(s1+" "+s2);
+            current=current.next;
+        }
+
+    }
+    //------------------- Display ------------------------------------------------------------------------------
     public void diaplay(){
         Node current = head;
         if(current==null){
@@ -113,6 +141,8 @@ public class LinkedList {
             current=current.next;
         }
     }
+
+
     public static void main(String[] args) {
         LinkedList linkedList = new LinkedList();
         linkedList.addLinkedList(5);
@@ -133,5 +163,6 @@ public class LinkedList {
         linkedList.diaplay();
         linkedList.deleteElement(777);
         linkedList.diaplay();
+        linkedList.sort();
     }
 }
