@@ -1,5 +1,7 @@
 package linkedList;
 
+import javax.swing.*;
+
 public class LinkedList {
     class Node{
         Object data;
@@ -25,6 +27,26 @@ public class LinkedList {
             head = newNode;
         }
     }
+    public void appendData(Object dataOld ,Object newData){
+        if (head==null){
+            System.out.println("List is Empty to append ...");
+            return;
+        }
+        else {
+            Node newNoad = new Node(newData);
+            Node temp = head;
+            while (temp!=null){
+                if(temp.data == dataOld){
+                    newNoad.next=temp.next;
+                    temp.next=newNoad;
+                    System.out.println("Append Data ... "+newData);
+                    return;
+                }
+                temp=temp.next;
+            }
+            System.out.println("Data Not Found : "+dataOld);
+        }
+    }
     public void diaplay(){
         Node current = head;
         if(current==null){
@@ -41,6 +63,8 @@ public class LinkedList {
         linkedList.addLinkedList(5);
         linkedList.addLinkedList(6);
         linkedList.addLinkedList(7);
+        linkedList.diaplay();
+        linkedList.appendData(7,10);
         linkedList.diaplay();
     }
 }
