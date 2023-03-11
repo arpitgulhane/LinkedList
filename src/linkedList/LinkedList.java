@@ -82,6 +82,26 @@ public class LinkedList {
         }
         System.out.println(searchData + " Not present ");
     }
+    public void deleteElement(Object deleteData){
+        if (head==null){
+            System.out.println("cant searchList is Empty ");
+        }
+        Node current=head;
+        Node previous = null;
+        while (current != null){
+            if(current.data == deleteData){
+                System.out.println(deleteData+" is present");
+//                if (previous == null) {
+//                    head = current.next;
+//                } else {
+//                    previous.next = current.next;
+//                }
+                return;
+            }
+            current = current.next;
+        }
+        System.out.println(deleteData + " Not present ");
+    }
     public void diaplay(){
         Node current = head;
         if(current==null){
@@ -98,6 +118,9 @@ public class LinkedList {
         linkedList.addLinkedList(5);
         linkedList.addLinkedList(6);
         linkedList.addLinkedList(7);
+        linkedList.addLinkedList(777);
+        linkedList.addLinkedList(78);
+        linkedList.addLinkedList(67);
         linkedList.diaplay();
         linkedList.appendData(7,10);
         linkedList.diaplay();
@@ -107,6 +130,8 @@ public class LinkedList {
         linkedList.diaplay();
         linkedList.search(100);
         linkedList.appendData(10,1000);
+        linkedList.diaplay();
+        linkedList.deleteElement(777);
         linkedList.diaplay();
     }
 }
