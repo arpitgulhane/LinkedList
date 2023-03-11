@@ -47,6 +47,15 @@ public class LinkedList {
             System.out.println("Data Not Found : "+dataOld);
         }
     }
+   public void deleteFirst(){
+        if (head==null){
+            System.out.println("List is Empty");
+            return;
+        }
+        head=head.next;
+       System.out.println("After Delete Head");
+
+    }
     public void diaplay(){
         Node current = head;
         if(current==null){
@@ -65,6 +74,8 @@ public class LinkedList {
         linkedList.addLinkedList(7);
         linkedList.diaplay();
         linkedList.appendData(7,10);
+        linkedList.diaplay();
+        linkedList.deleteFirst();
         linkedList.diaplay();
     }
 }
