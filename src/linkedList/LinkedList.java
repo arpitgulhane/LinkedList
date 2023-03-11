@@ -106,5 +106,7 @@ public class LinkedList {
         linkedList.deleteLast();
         linkedList.diaplay();
         linkedList.search(100);
+        linkedList.appendData(10,1000);
+        linkedList.diaplay();
     }
 }
