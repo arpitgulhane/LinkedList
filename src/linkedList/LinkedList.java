@@ -68,6 +68,20 @@ public class LinkedList {
         }
         corrent.next=null;
     }
+    public void search(Object searchData){
+        if (head==null){
+            System.out.println("cant searchList is Empty ");
+        }
+        Node current=head;
+        while (current != null){
+            if(current.data == searchData){
+                System.out.println(searchData+" is present");
+                return;
+            }
+            current = current.next;
+        }
+        System.out.println(searchData + " Not present ");
+    }
     public void diaplay(){
         Node current = head;
         if(current==null){
@@ -91,5 +105,6 @@ public class LinkedList {
         linkedList.diaplay();
         linkedList.deleteLast();
         linkedList.diaplay();
+        linkedList.search(100);
     }
 }
